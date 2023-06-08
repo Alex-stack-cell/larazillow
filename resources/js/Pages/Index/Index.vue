@@ -1,15 +1,20 @@
+<script>
+import MainLayout from "../../Layouts/MainLayout.vue";
+
+export default {
+    layout: MainLayout,
+}
+</script>
+
 <script setup>
-    import MainLayout from "../../Layouts/MainLayout.vue";
-    defineProps({
-        'message': String
-    });
+defineProps({
+    'message': String
+});
 </script>
 
 <template>
-    <MainLayout>
-        <div>Index</div>
-        <p>{{message}}</p>
-    </MainLayout>
+    <div>Index</div>
+    <p>{{message}}</p>
 </template>
 
 <style scoped>
