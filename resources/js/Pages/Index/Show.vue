@@ -1,8 +1,5 @@
-<script setup>
-</script>
-
 <template>
-    <div>Show</div>
+  <div>Show</div>
 </template>
 
 <style scoped>
