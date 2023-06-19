@@ -1,8 +1,7 @@
 <script setup>
-import {reactive} from 'vue'
-import {Inertia} from '@inertiajs/vue3/types/app.js'
+import {useForm} from '@inertiajs/inertia-vue3'
 
-const form = reactive({
+const form = useForm({
   beds:0,
   baths:0,
   area:0,
@@ -13,12 +12,12 @@ const form = reactive({
   price:null,
 })
 
-const create = () => Inertia.post('/listing', form)
+const create = () => form.post('/listing')
 
 </script>
 
 <template>
-  <form>
+  <form @submit.prevent="create">
     <div>
       <div>
         <label>Beds</label>
