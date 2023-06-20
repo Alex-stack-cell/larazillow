@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ListingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): \Inertia\Response|\Inertia\ResponseFactory
     {
         return inertia(
             'Listing/Index',
@@ -24,7 +25,7 @@ class ListingController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): \Inertia\Response|\Inertia\ResponseFactory
     {
         return inertia('Listing/Create');
     }
@@ -32,11 +33,12 @@ class ListingController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
        Listing::create($request->all());
 
-        return to_route('listing.index');
+        return redirect('/listing')
+            ->with('success', 'Listing was created !');
     }
 
     /**
