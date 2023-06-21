@@ -61,7 +61,7 @@ function create  () {
       </div>
 
       <div>
-        <button type="submit">Create</button>
+        <button type="submit" :disabled="form.processing">Create</button>
       </div>
     </div>
   </form>
