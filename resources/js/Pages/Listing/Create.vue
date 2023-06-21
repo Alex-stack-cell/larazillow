@@ -1,3 +1,22 @@
+<script setup>
+import { reactive } from 'vue'
+import { router } from '@inertiajs/vue3'
+
+const form = reactive({
+  beds: 0,
+  baths: 0,
+  area: 0,
+  city: null,
+  street: null,
+  postcode: null,
+  street_nr: null,
+  price: 0,
+})
+function create  () {
+  router.post('/listing', form)
+}
+</script>
+
 <template>
   <form @submit.prevent="create">
     <div>
@@ -47,21 +66,6 @@
     </div>
   </form>
 </template>
-
-<script setup>
-import { useForm } from '@inertiajs/inertia-vue3'
-const form = useForm({
-  beds: 0,
-  baths: 0,
-  area: 0,
-  city: null,
-  street: null,
-  postcode: null,
-  street_nr: null,
-  price: 0,
-})
-const create = () => form.post('/listing')
-</script>
 
 <style scoped>
 label {
