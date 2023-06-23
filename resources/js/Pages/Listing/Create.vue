@@ -23,41 +23,65 @@ function create  () {
       <div>
         <label>Beds</label>
         <input v-model.number="form.beds" type="text" />
+        <div v-if="$attrs.errors">
+          {{ $attrs.errors.beds }}
+        </div>
       </div>
 
       <div>
         <label>Baths</label>
         <input v-model.number="form.baths" type="text" />
+        <div v-if="$attrs.errors">
+          {{ $attrs.errors.baths }}
+        </div>
       </div>
 
       <div>
         <label>Area</label>
         <input v-model.number="form.area" type="text" />
+        <div v-if="$attrs.errors">
+          {{ $attrs.errors.area }}
+        </div>
       </div>
 
       <div>
         <label>City</label>
         <input v-model="form.city" type="text" />
+        <div v-if="$attrs.errors">
+          {{ $attrs.errors.city }}
+        </div>
       </div>
 
       <div>
         <label>Post Code</label>
         <input v-model="form.postcode" type="text" />
+        <div v-if="$attrs.errors">
+          {{ $attrs.errors.code }}
+        </div>
       </div>
 
       <div>
         <label>Street</label>
         <input v-model="form.street" type="text" />
+        <div v-if="$attrs.errors">
+          {{ $attrs.errors.street }}
+        </div>
       </div>
 
       <div>
         <label>Street Nr</label>
         <input v-model.number="form.street_nr" type="text" />
+        <div v-if="$attrs.errors">
+          {{ $attrs.errors.street_nr }}
+        </div>
       </div>
 
       <div>
         <label>Price</label>
         <input v-model.number="form.price" type="text" />
+        <div v-if="$attrs.errors">
+          {{ $attrs.errors.price }}
+        </div>
       </div>
 
       <div>
