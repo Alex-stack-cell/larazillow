@@ -11,8 +11,8 @@ setInterval(() => timer.value++, 1000)
 </script>
 
 <template>
-  <Link href="/">Main Page</Link>&nbsp;
-  <Link href="/show">Show Page</Link>
+  <Link href="/listing">Listings</Link>&nbsp;
+  <Link href="/listing/create">New listing</Link>
   <div>The page with time {{ timer }}</div>
   <div v-if="flashSuccess" class="success">
     {{ flashSuccess }}

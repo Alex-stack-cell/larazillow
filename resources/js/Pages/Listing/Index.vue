@@ -8,8 +8,13 @@ defineProps({
 
 <template>
   <div v-for="listing in listings" :key="listing.id">
-    <Link :href="`/listing/${listing.id}`">
-      <ListingAddress :listing="listing" /> ${{ listing.price }}
-    </Link>
+    <div>
+      <Link :href="`/listing/${listing.id}`">
+        <ListingAddress :listing="listing" /> ${{ listing.price }}
+      </Link>
+    </div>
+    <div>
+      <Link :href="`/listing/${listing.id}/edit`">Edit</Link>
+    </div>
   </div>
 </template>
