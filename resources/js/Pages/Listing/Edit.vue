@@ -85,3 +85,12 @@ function update () {
     </div>
   </form>
 </template>
+
+<style scoped>
+label {
+    margin-right: 2em;
+}
+div {
+    padding: 2px
+}
+</style>
