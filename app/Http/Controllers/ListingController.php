@@ -74,7 +74,7 @@ class ListingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreListingRequest $request, Listing $listing)
+    public function update(StoreListingRequest $request, Listing $listing): RedirectResponse
     {
         $validated = $request->validated();
         $listing->update($validated);
