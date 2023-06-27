@@ -13,7 +13,7 @@ const form = reactive({
   price: 0,
 })
 function create  () {
-  router.post('/listing', form)
+  router.post(route('listing.store'), form)
 }
 </script>
 

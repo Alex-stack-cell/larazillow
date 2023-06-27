@@ -18,7 +18,7 @@ const form = reactive({
 })
 
 function update () {
-  router.put(`/listing/${props.listing.id}`,form)
+  router.put(route('listing.update', {listing: props.listing.id}),form)
 }
 </script>
 
