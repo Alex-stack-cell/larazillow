@@ -6,7 +6,7 @@ defineProps({
 
 <template>
   <div>Index</div>
-  <p>
+  <p class="text-3xl font-bold underline">
     {{ message }}
   </p>
 </template>
