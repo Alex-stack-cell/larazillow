@@ -12,7 +12,7 @@ const props = defineProps({
   listing: Object,
 })
 
-const {monthlyPayment} = useMonthlyPaymentJs(props.listing.price, interestRate, duration)
+const {monthlyPayment, totalPaid, totalInterest} = useMonthlyPaymentJs(props.listing.price, interestRate, duration)
 
 </script>
 
@@ -47,6 +47,26 @@ const {monthlyPayment} = useMonthlyPaymentJs(props.listing.price, interestRate, 
           <div class="text-gray-600 dar:text-gray-300 mt-2">
             <div class="text-gray-400">Your monthly payment</div>
             <Price :price="monthlyPayment" class="text-3xl" />
+          </div>
+          <div class="mt-2 text-gray-500">
+            <div class="flex justify-between">
+              <div>Interest paid</div>
+              <div>
+                <Price :price="totalPaid" class="font-bold" />
+              </div>
+            </div>
+            <div class="flex justify-between">
+              <div>Principle paid</div>
+              <div>
+                <Price :price="listing.price" class="font-bold" />
+              </div>
+            </div>
+            <div class="flex justify-between">
+              <div>Total interest</div>
+              <div>
+                <Price :price="totalInterest" class="font-bold" />
+              </div>
+            </div>
           </div>
         </div>
       </Box>
