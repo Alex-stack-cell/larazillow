@@ -69,7 +69,7 @@ function create  () {
       </div>
 
       <div class="col-span-2">
-        <label class="label">Street Nr</label>
+        <label class="label">Street number</label>
         <input v-model.number="form.street_nr" type="text" class="input" />
         <div v-if="$attrs.errors">
           {{ $attrs.errors.street_nr }}
