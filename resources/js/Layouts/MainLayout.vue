@@ -21,7 +21,7 @@ setInterval(() => timer.value++, 1000)
           <Link :href="route('listing.index')">LaraZillow</Link>
         </div>
         <div>
-          <Link :href="route('listing.create')" class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium p-2 rounded-md">+ New listing</Link>
+          <Link :href="route('listing.create')" class="btn-primary">+ New listing</Link>
         </div>
       </nav>
     </div>
