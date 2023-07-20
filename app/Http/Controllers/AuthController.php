@@ -10,7 +10,7 @@ class AuthController extends Controller
      * User creates an account **/
     public function create()
     {
-        //
+        return inertia('Auth/Login');
     }
 
     /*
