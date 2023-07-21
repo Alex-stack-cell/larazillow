@@ -2,15 +2,19 @@ import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import MainLayout from '@/Layouts/MainLayout.vue'
 import {ZiggyVue} from 'ziggy'
-import {InertiaProgress} from '@inertiajs/progress'
+import NProgress from 'nprogress'
+import { router } from '@inertiajs/vue3'
 
-InertiaProgress.init({
-  delay: 0,
-  color: '#29d',
-  includeCSS: true,
-  showSpinner: true,
-})
+router.on('start', () => NProgress.start())
+router.on('finish', () => NProgress.done())
+
 createInertiaApp({
+  progress: {
+    delay: 250,
+    includeCSS: true,
+    showSpinner: false,
+    color: '#29d',
+  },
   resolve:  name => {
     const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
 
