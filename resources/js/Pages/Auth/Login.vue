@@ -17,11 +17,12 @@ const login = () => router.post(route('login.store'), form)
       <div>
         <label for="email" class="label">Email</label>
         <input id="email" v-model="form.email" type="text" class="input" />
-        <div class="input-error">Potential errors</div>
+        <div v-if="$attrs.errors.email" class="input-error">{{ $attrs.errors.email }}</div>
       </div>
       <div class="mt-4">
         <label for="password" class="label">Password</label>
         <input id="password" v-model="form.password" type="password" class="input" />
+        <div v-if="$attrs.errors.password" class="input-error">{{ $attrs.errors.password }}</div>
       </div>
       <div class="mt-4">
         <button class="btn-primary w-full" type="submit">Login</button>
