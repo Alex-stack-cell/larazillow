@@ -1,14 +1,14 @@
 <script setup>
+import { reactive } from 'vue'
+import { router } from '@inertiajs/vue3'
 
-
-import {useForm} from '@inertiajs/inertia-vue3'
-
-const form = useForm({
+const form = reactive({
   email: null,
   password: null,
 })
 
-const login = () => form.post(route('login.store'))
+const login = () => router.post(route('login.store'), form)
+
 </script>
 
 <template>
