@@ -7,6 +7,9 @@ const page = usePage()
 const flashSuccess = computed(() => {
   return page.props.flash.success
 })
+const user = computed(() => {
+  return page.props.user
+})
 setInterval(() => timer.value++, 1000)
 </script>
 
@@ -20,8 +23,13 @@ setInterval(() => timer.value++, 1000)
         <div class="text-xl text-indigo-600 dark:text-indigo-300 font-bold text-center">
           <Link :href="route('listing.index')">LaraZillow</Link>
         </div>
-        <div>
+        <div v-if="user" class="flex items-center gap-4">
+          <div class="text-sm text-gray-500">{{ user.name }}</div>
           <Link :href="route('listing.create')" class="btn-primary">+ New listing</Link>
+          <div>Logout</div>
+        </div>
+        <div v-else>
+          <Link :href="route('login')">Sign-in</Link>
         </div>
       </nav>
     </div>
