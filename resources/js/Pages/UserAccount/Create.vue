@@ -9,7 +9,7 @@ const form = reactive({
   password_confirmation: null,
 })
 
-const register = () => router.post(route(''), form)
+const register = () => router.post(route('user-account.store'), form)
 
 </script>
 
