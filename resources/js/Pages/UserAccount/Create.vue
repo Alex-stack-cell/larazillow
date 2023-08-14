@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from 'vue'
-import { router } from '@inertiajs/vue3'
+import {Link, router} from '@inertiajs/vue3'
 
 const form = reactive({
   name:null,
@@ -37,6 +37,11 @@ const register = () => router.post(route('user-account.store'), form)
       </div>
       <div class="mt-4">
         <button class="btn-primary w-full" type="submit">Create Account</button>
+        <div class="mt-4 text-center">
+          <Link :href="route('login')" class="text-sm text-gray-500">
+            Already have an account ? Click here
+          </Link>
+        </div>
       </div>
     </div>
   </form>
