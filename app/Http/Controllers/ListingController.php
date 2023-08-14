@@ -12,6 +12,14 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ListingController extends Controller
 {
+    /*
+     * Protect all routes from unauthenticated users except index and show
+     **/
+//    public function __construct()
+//    {
+//        $this->middleware('auth')->except(['index', 'show']);
+//    }
+
     /**
      * Display a listing of the resource.
      */
