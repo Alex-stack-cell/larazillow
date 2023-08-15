@@ -46,8 +46,8 @@ class ListingController extends Controller
      */
     public function store(StoreListingRequest $request): RedirectResponse
     {
-        $validated = $request->validated();
-        Listing::create($validated);
+        $validatedListing = $request->validated();
+        $request->user()->listings()->create($validatedListing);
 
         return redirect()->route('listing.index')
             ->with('success', 'Listing was created !');
