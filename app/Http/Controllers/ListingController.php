@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreListingRequest;
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Inertia\Response;
 use Inertia\ResponseFactory;
@@ -12,6 +13,13 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ListingController extends Controller
 {
+    /*
+     * Mapping the controller methods with the corresponding policy method.
+     * The end goal is to verify if a user has access to a resource**/
+    public function __construct()
+    {
+        $this->authorizeResource(Listing::class,'listing');
+    }
     /*
      * Protect all routes from unauthenticated users except index and show
      **/
@@ -38,6 +46,7 @@ class ListingController extends Controller
      */
     public function create(): Response|ResponseFactory
     {
+//        $this->authorize('create', Listing::class);
         return inertia('Listing/Create');
     }
 
@@ -58,6 +67,11 @@ class ListingController extends Controller
      */
     public function show(Listing $listing): Response|ResponseFactory
     {
+//        if (Auth::user()->cannot('view',$listing)) {
+//            abort(403);
+//        }
+//        $this->authorize('view', $listing);
+
         return inertia(
             'Listing/Show',
             [
