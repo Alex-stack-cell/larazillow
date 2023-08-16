@@ -8,13 +8,13 @@ use Illuminate\Auth\Access\Response;
 
 class ListingPolicy
 {
-    public function before(?User $user, $ability): bool
+    public function before(?User $user, $ability): ?bool
     {
-        if ($user->is_admin /*&& $ability === 'update'*/) {
+        if ($user?->is_admin /*&& $ability === 'update'*/) {
             return true;
         }
 
-        return false;
+        return null;
     }
 
     /**
