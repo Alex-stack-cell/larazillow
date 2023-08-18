@@ -49,18 +49,18 @@ const clear = () => {
     <div class="mb-8 mt-4 flex flex-wrap gap-2">
       <div class="flex flex-nowrap items-center">
         <input
-          @keydown.space.prevent
           v-model.number="filterForm.priceFrom"
           type="text"
           placeholder="Price From"
           class="input-filter-l w-28"
+          @keydown.space.prevent
         />
         <input
-          @keydown.space.prevent
           v-model.number="filterForm.priceTo"
           type="text"
           placeholder="Price To"
           class="input-filter-r w-28"
+          @keydown.space.prevent
         />
       </div>
 
@@ -79,15 +79,17 @@ const clear = () => {
 
       <div class="flex flex-nowrap items-center">
         <input
-            @keydown.space.prevent
-            v-model.number="filterForm.areaFrom"
-            type="text" placeholder="Area From"
-            class="input-filter-l w-28" />
+          v-model.number="filterForm.areaFrom"
+          type="text"
+          placeholder="Area From" class="input-filter-l w-28"
+          @keydown.space.prevent
+        />
         <input
-            @keydown.space.prevent
-            v-model.number="filterForm.areaTo"
-            type="text" placeholder="Area To"
-            class="input-filter-r w-28" />
+          v-model.number="filterForm.areaTo"
+          type="text"
+          placeholder="Area To" class="input-filter-r w-28"
+          @keydown.space.prevent
+        />
       </div>
       <button type="submit" class="btn-normal">Filter</button>
       <button type="reset" @click="clear">Clear</button>
