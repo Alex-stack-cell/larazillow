@@ -18,7 +18,7 @@ class ListingController extends Controller
      * The end goal is to verify if a user has access to a resource**/
     public function __construct()
     {
-        $this->authorizeResource(Listing::class,'listing');
+        $this->authorizeResource(Listing::class, 'listing');
     }
     /*
      * Protect all routes from unauthenticated users except index and show
@@ -33,13 +33,42 @@ class ListingController extends Controller
      */
     public function index(Request $request): Response|ResponseFactory
     {
+        $filters = $request->only([
+            'priceFrom', 'priceTo', 'beds', 'baths', 'areaFrom', 'areaTo'
+        ]);
+        $query = Listing::orderByDesc('created_at');
+
+        if (isset($filters['priceFrom'])) {
+            $query->where('price', '>=', $filters['priceFrom']);
+        }
+
+        if (isset($filters['priceTo'])) {
+            $query->where('price', '<=', $filters['priceTo']);
+        }
+
+        if (isset($filters['beds'])) {
+            $query->where('beds', $filters['beds']);
+        }
+
+        if (isset($filters['baths'])) {
+            $query->where('baths', $filters['baths']);
+        }
+
+        if (isset($filters['areaFrom'])) {
+            $query->where('area', '>=', $filters['areaFrom']);
+        }
+
+        if (isset($filters['areaTo'])) {
+            $query->where('area', '<=', $filters['areaTo']);
+        }
+
+
+
         return inertia(
             'Listing/Index',
             [
-                'filters' => $request->only([
-                    'priceFrom', 'priceTo', 'beds', 'baths', 'areaFrom', 'areaTo'
-                ]),
-                'listings' => Listing::orderByDesc('created_at')
+                'filters' => $filters,
+                'listings' => $query
                     ->paginate(10)
                     ->withQueryString()
             ]
