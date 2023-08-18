@@ -44,6 +44,10 @@ class AuthController extends Controller
      * **/
     public function destroy(Request $request)
     {
+        if (!Auth::user()) {
+            abort(403,'This action is unauthorized.');
+        }
+
         Auth::logout();
 
         $request->session()->invalidate();
