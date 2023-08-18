@@ -25,8 +25,15 @@ Route::resource('listing', ListingController::class)
     ->only(['create', 'store', 'edit', 'update', 'destroy'])
     ->middleware('auth');
 
-Route::resource('listing', ListingController::class)
-    ->except(['create', 'store', 'edit', 'update', 'destroy']);
+Route::withoutMiddleware('auth')->group(function () {
+   Route::get('/listing',[ListingController::class, 'index'])
+       ->name('listing.index');
+   Route::get('/listing/{listing}',[ListingController::class, 'show'])
+       ->name('listing.show');
+});
+
+//Route::resource('listing', ListingController::class)
+//    ->except(['create', 'store', 'edit', 'update', 'destroy']);
 
 Route::get('login', [AuthController::class, 'create'])
     ->name('login');
