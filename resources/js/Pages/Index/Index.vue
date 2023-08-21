@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  'message': String,
+  message: String,
 })
 </script>
 
@@ -11,6 +11,4 @@ defineProps({
   </p>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
