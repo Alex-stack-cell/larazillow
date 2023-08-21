@@ -25,6 +25,7 @@ class ReservationFactory extends Factory
             'vat_number' => fake()->vat(),
             'first_name' => fake()->firstName(),
             'name' => fake()->name(),
+            'email' => fake()->email(),
             'special_needs' => fake()->paragraph(3, true)
         ];
     }

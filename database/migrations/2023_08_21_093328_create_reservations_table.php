@@ -11,25 +11,18 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedInteger('number_of_people');
+            $table->id()->index('reservation_id');
+            $table->unsignedSmallInteger('number_of_people');
             $table->date('reservation_date');
             $table->time('reservation_hour');
             $table->boolean('is_company');
-            $table->
+            $table->string('company_name')->nullable(true);
+            $table->string('vat_number')->nullable(true);
+            $table->string('first_name');
+            $table->string('name');
+            $table->tinyText('special_needs')->nullable();
             $table->timestamps();
         });
-
-        /*
-         *    'number_of_people',
-        'reservation_date',
-        'reservation_hour',
-        'is_company',
-        'company_name',
-        'vat_number',
-        'first_name',
-        'name',
-        'special_needs'**/
     }
 
     /**
