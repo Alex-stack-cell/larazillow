@@ -17,9 +17,10 @@ class ReservationFactory extends Factory
     public function definition(): array
     {
         return [
+            'id' => fake()->uuid(),
             'number_of_people' => fake()->numberBetween(1, 20),
             'reservation_date' => fake()->dateTimeBetween('now', '+1 month'),
-            'reservation_hour' => fake()->time('', '22:30:00'),
+            'reservation_hour' => fake()->time('H:i:s', '22:30:00'),
             'is_company' => fake()->boolean(),
             'company_name' => fake()->company(),
             'vat_number' => fake()->vat(),

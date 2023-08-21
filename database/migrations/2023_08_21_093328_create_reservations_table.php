@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->id()->index('reservation_id');
+            $table->uuid('id')->index('reservation_id');
             $table->unsignedSmallInteger('number_of_people');
             $table->date('reservation_date');
             $table->time('reservation_hour');
@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->string('vat_number')->nullable(true);
             $table->string('first_name');
             $table->string('name');
+            $table->string('email')->unique('email');
             $table->tinyText('special_needs')->nullable();
             $table->timestamps();
         });
